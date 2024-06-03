@@ -19,4 +19,8 @@ This is an implementation of the Hangman game, where the computer thinks of a wo
 
 ## File structure of the project
 
+milstone_3.py file contains functions to:
+- Request user input, user guesses a letter
+- Checks if letter is present in the random word
+
 ## License information
