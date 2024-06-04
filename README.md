@@ -25,10 +25,13 @@ milstone_3.py file contains functions to:
 
 ### milstone_4.py file contains functions to:
 #### check_guess:
--- checks if the guessed letter is present in the word
+- checks if the guessed letter is present in the word
+- if it is present it replaces blanks in word_guessed with the guessed letter and provides user confirmation
+- if it is not present it informs the user and reduces their number of lives by 1- 
 
+#### ask_for_input:
 - Request user input, user guesses a letter
-- Checks if letter is present in the random word
-  
+- Checks validity of user input
+- Checks if user has already attempted that letter  
 
 ## License information
