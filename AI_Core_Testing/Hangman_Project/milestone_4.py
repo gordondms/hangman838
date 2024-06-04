@@ -8,9 +8,12 @@ word = random.choice(word_list)
 
 # Define variables
 
-word_guessed = []
-num_letters = []
+word_guessed = ["_"] * len(word)
+num_letters = len(set(word))
 list_of_guesses = []
+
+print(word)
+print(num_letters)
 
 class Hangman:
 
@@ -23,15 +26,23 @@ class Hangman:
         self.word_list = word_list
         self.list_of_guesses = list_of_guesses
 
-    # Method1: 
+    # Method1: Checks if the users guess is a letter within the random word
     def check_guess(self, guess):
         guess = str.lower(guess)
+        # If guess is correct user gets confimation and the blank spaces in word_guessed are populated with the correct letter
         if guess in word:
             print("Good guess!", guess, "is in the word.")
-        # elif:
-            # print("Sorry,", guess, "is not in the word. Try again.")
-
-
+            for index, letter in enumerate(word):
+                if letter == guess:
+                    word_guessed[index] = guess
+                    print(word_guessed)
+        else:
+            self.num_lives -= 1
+            print("Sorry!", guess, "is not in the word.")
+            print("You have", self.num_lives, "lives left.")
+    num_letters -= 1
+    print(num_letters)    
+    
     # Method2: 
     def ask_for_input(self):
         while True:
@@ -43,6 +54,7 @@ class Hangman:
             else:
                 list_of_guesses.append(guess) 
                 self.check_guess(guess)
+
 
 hangman = Hangman(word_list)
 hangman.ask_for_input()
