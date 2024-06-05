@@ -41,7 +41,7 @@ class Hangman:
     #          Checks if user has already attempted that letter
 
     def ask_for_input(self):
-        while True:
+        # while True:
             """User inputs a letter and this is stored in the guess variable"""
             guess = input("Please enter a letter: ")
             """
@@ -61,7 +61,12 @@ class Hangman:
 
 def play_game(word_list):
     """
-
+    Coding the logic of the game
+    Creates an instance of the Hangman class and assigns it to game variable
+    Passes word_list and num_lives as arguments to the game object
+    Checks if num_lives counter has reached 0 = end of game (user loses)
+    Checks if the num_letters variable is still > 0 = game continues
+    Otherwise the user has found the word and has won the game
     """
     game = Hangman(word_list, num_lives=5)
     while True:
