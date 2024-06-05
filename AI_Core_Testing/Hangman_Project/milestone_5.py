@@ -4,12 +4,12 @@ class Hangman:
 
     # class constructor
     def __init__(self, word_list, num_lives=5):
-        self.word = str.lower(random.choice(word_list))
-        self.word_guessed = ["_"] * len(self.word)
-        self.num_letters = len(set(self.word))
-        self.num_lives = num_lives
-        self.word_list = word_list
-        self.list_of_guesses = []
+        self.word = str.lower(random.choice(word_list))       # "word" is the randomly selected word, in lower case
+        self.word_guessed = ["_"] * len(self.word)            # "word_guessed" creates a list of underscores based on the length (number of letters) in "word"
+        self.num_letters = len(set(self.word))                # "num_letters" is the number of unique letters in the "word"
+        self.num_lives = num_lives                            # "num lives" is the number of lives remaining (set to 5)
+        self.word_list = word_list                            # "word_list" is the original list of words that can be selected from
+        self.list_of_guesses = []                             # "list_of_guesses" is the list of letters that the user has submitted as guesses
 
     # Method1: Checks if the users guess is a letter within the random word
     def check_guess(self, guess):
@@ -22,16 +22,16 @@ class Hangman:
         if guess in self.word:
             print("Good guess!", guess, "is in the word.")
             
-            for index, letter in enumerate(self.word):
+            for index, letter in enumerate(self.word):        # "index" and "letter" iterate through the word to provide the index of each letter
                 if letter == guess:
                     self.word_guessed[index] = guess
                     print(self.word_guessed)
 
-            self.num_letters -= 1
-            print("num_letters =", self.num_letters)
+            self.num_letters -= 1                             # reduces the "num_letters" by 1
+            # print("num_letters =", self.num_letters)
 
         else:
-            self.num_lives -= 1
+            self.num_lives -= 1                               # reduces the "num_lives" by 1
             print("Sorry!", guess, "is not in the word.")
             print("You have", self.num_lives, "lives left.")
          
@@ -55,7 +55,7 @@ class Hangman:
                 print("You already tried that letter!")
             else:
                 self.list_of_guesses.append(guess)
-                print(self.list_of_guesses)
+                # print(self.list_of_guesses)
                 self.check_guess(guess)
             
 
@@ -74,7 +74,7 @@ def play_game(word_list):
             print("You lost!")
             break
         elif game.num_letters > 0:
-            print(game.num_letters)
+            # print(game.num_letters)
             game.ask_for_input()
         else:
             print("Congratulations. You won the game")
